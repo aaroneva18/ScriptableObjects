@@ -1,17 +1,23 @@
+using System;
+using UnityEngine;
 
-    using System;
-    using UnityEngine;
+public class ObjectManager : MonoBehaviour
+{
+    [SerializeField] private ObjectsData objectData;
+    [SerializeField] private string ObjectID;
 
-    public class ObjectManager : MonoBehaviour
-    {
-        [SerializeField] private InteractableType interactableType;
-        [SerializeField] private ObjectsData objectData;
-
-        private void Awake() {
-            objectData.SetObjectID();
-            Debug.Log(objectData.GetObjectID);
-        }
-
-        public InteractableType GetInteractableType { get { return interactableType; } }
-
+    private void Awake() {
+        SetObjectID();
     }
+
+    public string GetObjectID { get { return ObjectID; } }
+    public string GetObjectName { get { return objectData.GetObjectName; } }
+    public string GetObjectDescription { get { return objectData.GetObjectDescription; } }
+    public InteractableType GetInteractableType { get { return objectData.GetInteractableType; } }
+
+
+    public void SetObjectID() {
+        ObjectID = Guid.NewGuid().ToString();
+    }
+
+}
