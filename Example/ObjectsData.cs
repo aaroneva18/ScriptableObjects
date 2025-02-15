@@ -13,5 +13,7 @@ public class ObjectsData : ScriptableObject
     public string GetObjectName { get { return objectName; } }
     public string GetObjectDescription { get { return objectDescription; } }
     public InteractableType GetInteractableType { get { return interactableType; } }
+    public Sprite GetUISprite { get { return UISprite; } }
+    public Vector3 GetUIPosition { get { return UIPosition; } }
 
 }
